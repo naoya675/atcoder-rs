@@ -1,0 +1,30 @@
+use std::collections::VecDeque;
+
+use proconio::input;
+
+fn main() {
+    input! {
+        q: usize,
+    }
+    let mut stack = VecDeque::new();
+    for _ in 0..q {
+        input! {
+            query: usize,
+        }
+        match query {
+            1 => {
+                input! {
+                    x: String,
+                }
+                stack.push_back(x);
+            }
+            2 => {
+                println!("{}", stack.back().unwrap());
+            }
+            3 => {
+                stack.pop_back();
+            }
+            _ => unreachable!(),
+        }
+    }
+}
